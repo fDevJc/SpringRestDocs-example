@@ -26,10 +26,12 @@ class ExampleControllerTest {
     void example1() throws Exception {
         mockMvc.perform(get("/example").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andDo(document("post-get-one", responseFields(
-                        fieldWithPath("id").description("example id"),
-                        fieldWithPath("name").description("example name")
-                )));
+                .andDo(document("post-get-one",
+                        responseFields(
+                                fieldWithPath("id").description("example id"),
+                                fieldWithPath("name").description("example name")
+                        )
+                ));
     }
 
 }
